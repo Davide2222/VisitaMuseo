@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LoginLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="20dp"
+    android:paddingTop="50dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_firstlayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/login_logo"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/museo_icon"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/open_sans_bold"
+            android:gravity="bottom"
+            android:text="Visita Museo"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toTopOf="@id/InserisciCredenzialiTextView"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toRightOf="@id/login_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/InserisciCredenzialiTextView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/open_sans"
+            android:text="@string/InserireCredenziali"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toRightOf="@id/login_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_login" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_firstlayout">
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/UsernameTextInput_login"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Long">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/UsernameEditText_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:hint="@string/Username"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/PasswordTextInput_login"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Long"
+            android:hint="@string/Password"
+            app:endIconMode="password_toggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/PasswordEditText_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/blue"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/login_button"
+            style="@style/VisitaMuseo.NuovoItinerario.MaterialButton"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/Login"
+            android:textAllCaps="false" />
+
+        <TextView
+            android:id="@+id/SignUpTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center|start"
+            android:fontFamily="@font/open_sans"
+            android:text="Non hai ancora un account? Registrati"
+            android:textColor="@color/blue" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

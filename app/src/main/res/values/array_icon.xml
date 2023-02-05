@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Side Nav Menu -->
+    <string-array name="drawer_icon_title">
+        <item>Scopri mostre</item>
+        <item>Profilo</item>
+        <item>Log out</item>
+    </string-array>
+
+    <array name="drawer_icon">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_face</item>
+        <item>@drawable/ic_sign_out</item>
+    </array>
+
+</resources>

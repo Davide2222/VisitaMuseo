@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/SignUpLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signup_firstlayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/login_logo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_login"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="sans-serif-light"
+            android:gravity="bottom"
+            android:text="@string/NaTour"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            app:layout_constraintBottom_toTopOf="@id/textDescription"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toRightOf="@id/login_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textDescription"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="sans-serif"
+            android:text="@string/InserireCredenziali"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintLeft_toRightOf="@id/login_logo"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_login" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signup_firstlayout"
+        android:layout_gravity="center_horizontal">
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            android:text="@string/SignUp"
+            android:textColor="@color/white" />
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/radioGroupTypeUser"
+            android:layout_centerInParent="true">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/radio_button_user"
+                    android:button="@null"
+                    android:layoutDirection="rtl"
+                    android:text="New RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radioButton5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/radio_button_user"
+                    android:button="@null"
+                    android:layoutDirection="rtl"
+                    android:text="" />
+
+                <RadioButton
+                    android:id="@+id/radioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/radio_button_user"
+                    android:button="@null"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layoutDirection="rtl"
+                    android:text="New RadioButton" />
+
+            </LinearLayout>
+
+            <androidx.legacy.widget.Space
+                android:layout_width="wrap_content"
+                android:layout_height="15dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioButton4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/radio_button_user"
+                    android:button="@null"
+                    android:layoutDirection="rtl"
+                    android:text="New RadioButton" />
+
+                <RadioButton
+                    android:id="@+id/radioButton3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/radio_button_user"
+                    android:button="@null"
+                    android:layoutDirection="rtl"
+                    android:text="New RadioButton" />
+            </LinearLayout>
+
+        </RadioGroup>
+
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <!--<com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/UserIdTextInput_signup"
+            style="@style/VisitaMuseo.Login.TextInputLayout"
+            android:hint="@string/Username">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/UserIdEditText_signup"
+                style="@style/VisitaMuseo.Login.TextInputLayout.EditText"
+                android:inputType="textPersonName" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/NewPasswordTextInput_signup"
+            style="@style/VisitaMuseo.Login.TextInputLayout"
+            android:hint="@string/Password"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/NewPasswordEditText_signup"
+                style="@style/VisitaMuseo.Login.TextInputLayout.EditText"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.legacy.widget.Space
+            android:layout_width="wrap_content"
+            android:layout_height="15dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/ConfirmPasswordTextInput_signup"
+            style="@style/VisitaMuseo.Login.TextInputLayout"
+            android:hint="Conferma Password"
+            app:endIconMode="password_toggle"
+            app:endIconTint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/ConfirmPasswordEditText_signup"
+                style="@style/VisitaMuseo.Login.TextInputLayout.EditText"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>-->
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signup_button"
+            style="@style/VisitaMuseo.NuovoItinerario.MaterialButton"
+            android:layout_width="150dp"
+            android:backgroundTint="@color/verde_chiaro"
+            android:elevation="10dp"
+            android:text="Registrati"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:layout_margin="10dp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

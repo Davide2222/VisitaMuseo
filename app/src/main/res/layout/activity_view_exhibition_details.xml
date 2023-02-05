@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ExhibitionDetailsRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/ExhibitionApp_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/ExhibitionCollapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-30dp"
+            android:clipToPadding="false"
+            android:fitsSystemWindows="false"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/ImageExhibition"
+                android:layout_width="match_parent"
+                android:layout_height="530dp" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarExhibition"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp">
+
+                        <TextView
+                            android:id="@+id/ExhibitionNameTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="65dp"
+                            android:layout_marginEnd="65dp"
+                            android:fontFamily="@font/open_sans_bold"
+                            android:gravity="center"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintHorizontal_bias="0.7"
+                            app:layout_constraintStart_toEndOf="@+id/backButtonExhibitionActivity"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/backButtonExhibitionActivity"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="5dp"
+                            android:clickable="true"
+                            android:src="@drawable/ic_back"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="contentDescription" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+<androidx.core.widget.NestedScrollView
+        android:id="@+id/NestedScrollDetailsExhibition"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="-30dp"
+        android:background="@drawable/shape_container_bottom"
+        android:overScrollMode="never"
+        android:paddingTop="35dp"
+        app:layout_anchor="@+id/NestedScrollDetailsExhibition"
+        app:layout_anchorGravity="center"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="25dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:text="Descrizione"
+                    android:textColor="@color/darkBlue"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_horizontal" />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hyphenationFrequency="full"
+                    android:justificationMode="inter_word"
+                    android:fontFamily="@font/open_sans"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.05"
+                    android:layout_gravity="center_horizontal"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Opere d'arte"
+                    android:textColor="@color/darkBlue"
+                    android:textSize="18sp" />
+
+                <androidx.legacy.widget.Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="10dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/SliderArtRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp"
+                    android:layout_marginStart="-40dp"
+                    android:background="@color/transparent">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+
+            </LinearLayout>
+
+           <!-- <com.wang.avi.AVLoadingIndicatorView
+                android:id="@+id/fragment_details_loading_spinner"
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                app:indicatorColor="@color/darkBlue"
+                app:indicatorName="LineScalePulseOutRapidIndicator"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/fragment_home_main_container_best_destinations" />
+-->
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
