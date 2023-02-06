@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         tools:ignore="contentDescription" />
 
-    <Space
+    <androidx.legacy.widget.Space
         android:layout_width="12dp"
         android:layout_height="wrap_content" />
 

@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkBlue"  >
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background_profile"
-        tools:ignore="contentDescription" />
+    android:background="@drawable/background">
 
     <com.scwang.wave.MultiWaveHeader
         android:id="@+id/fragment_profile_waves"
@@ -22,32 +14,19 @@
         android:layout_alignParentBottom="true"
         android:clickable="true"
         android:scaleY="1"
-        app:mwhCloseColor="@color/darkNavy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:mwhCloseColor="@color/blue"
         app:mwhColorAlpha="0.7"
         app:mwhProgress="1"
         app:mwhStartColor="@color/darkNavy"
         app:mwhVelocity="3"
         app:mwhWaveHeight="30dp"
-        app:mwhWaves="MultiWave"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <!--<de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/fragment_profile_picture"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        app:civ_border_color="@color/darkBlue"
-        app:civ_border_width="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/fragment_profile_waves"
-        app:layout_constraintStart_toStartOf="@+id/fragment_profile_waves"
-        app:layout_constraintTop_toTopOf="@+id/fragment_profile_waves"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintVertical_bias="0.25" />-->
+        app:mwhWaves="MultiWave" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/fragment_profile_picture"
@@ -58,25 +37,25 @@
         app:civ_border_width="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/fragment_profile_waves"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/fragment_profile_waves"
         app:layout_constraintTop_toTopOf="@+id/fragment_profile_waves"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_bias="0.25" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fragment_profile_button_edit_image_profile"
+        android:id="@+id/edit_image_profile_button"
         android:layout_width="44dp"
         android:layout_height="44dp"
         app:backgroundTint="@color/peach"
-        app:srcCompat="@drawable/ic_edit"
-        app:tint="@color/white"
         app:fabCustomSize="44dp"
         app:layout_constraintBottom_toBottomOf="@+id/fragment_profile_picture"
         app:layout_constraintEnd_toEndOf="@+id/fragment_profile_picture"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/fragment_profile_picture"
         app:layout_constraintTop_toTopOf="@+id/fragment_profile_picture"
         app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintHorizontal_bias="1.0" />
+        app:srcCompat="@drawable/ic_edit"
+        app:tint="@color/white" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -95,112 +74,39 @@
             android:fontFamily="@font/open_sans_bold"
             android:text="Gestione profilo"
             android:textAlignment="center"
-
             android:textColor="@color/peach"
             android:textSize="27sp" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/fragment_profile_text_view_nickname"
+        android:id="@+id/welcomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:textAlignment="center"
+        android:fontFamily="@font/open_sans_bold"
+        android:textColor="@color/darkBlue"
+        android:textSize="26sp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/fragment_profile_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/changePasswordButton"
+        style="@style/VisitaMuseo.NuovoItinerario.MaterialButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_sans_bold"
-        android:paddingTop="3dp"
-        android:textColor="@color/peach"
-        app:layout_constraintBottom_toTopOf="@+id/fragment_profile_data_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_profile_picture"
-        app:layout_constraintVertical_bias="0.2"/>
-
-    <LinearLayout
-        android:id="@+id/fragment_profile_data_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Cambia password"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_profile_picture"
-        app:layout_constraintVertical_bias="0.199">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/profileIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:drawableStart="@drawable/ic_face"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:text="Nome"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/NameText_profile"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_marginStart="7dp"
-                android:fontFamily="@font/open_sans_semibold"
-                android:gravity="center"
-                android:textColor="@color/peach"
-                android:textSize="15sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/changePasswordIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_marginTop="45dp"
-                android:drawableStart="@drawable/ic_lock"
-                android:drawablePadding="10dp"
-                android:fontFamily="@font/open_sans"
-                android:gravity="center"
-                android:text="change_password"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_profile_text_view_username"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <Button
-                style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
-                android:id="@+id/changePasswordButton"
-                android:layout_width="60dp"
-                android:layout_height="46dp"
-                android:layout_marginTop="45dp"
-                android:fontFamily="@font/open_sans_bold"
-                android:paddingStart="4dp"
-                android:paddingEnd="0dp"
-                android:text="qui"
-                android:textAlignment="viewStart"
-                android:textAllCaps="false"
-                android:textColor="@drawable/button_text_style_peach_white"
-                android:textIsSelectable="false"
-                android:textSize="15sp"
-                app:rippleColor="@color/transparent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fragment_profile_text_view_change_password"
-                app:layout_constraintTop_toBottomOf="@+id/fragment_profile_toggle_preferred_username"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintVertical_bias="0.0" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/welcomeTextView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -65,7 +65,7 @@ public class ArtAdapterForSlider extends RecyclerView.Adapter<ArtAdapterForSlide
 
     public void showArtDetailsDialog(View view, SliderViewInterface art) {
         AlertDialog.Builder builder = new AlertDialog.Builder(layoutInflater.getContext());
-        View customLayout = layoutInflater.inflate(R.layout.card_view_art_details, null);
+        View customLayout = layoutInflater.inflate(R.layout.card_art_details, null);
         ImageView imageView = customLayout.findViewById(R.id.imageArt);
         ImageView remove = customLayout.findViewById(R.id.removeArtCard);
         TextView authorName = customLayout.findViewById(R.id.authorName);

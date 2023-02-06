@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
 
 import es.dmoral.toasty.Toasty;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends FullscreenActivity {
 
     private EditText editTextUsername;
     private EditText editTextPassword;

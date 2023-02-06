@@ -18,7 +18,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.visitamuseo.ProfileFragment;
+import com.example.visitamuseo.view.fragments.ProfileFragment;
 import com.example.visitamuseo.R;
 import com.example.visitamuseo.utils.adapter.MenuAdapter;
 import com.example.visitamuseo.utils.customDrawer.ItemView;
@@ -103,7 +103,7 @@ public class NavigationActivity extends FullscreenActivity {
                     currentFragment = new HomeFragment(this);
                     break;
                 case NavigationActivity.BUTTON_MY_PROFILE:
-                    currentFragment = new ProfileFragment(this);
+                    currentFragment = new ProfileFragment();
                     break;
                 case NavigationActivity.BUTTON_SIGN_OUT + 1:
                     logout();

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.visitamuseo.utils.internalDatabase.DbManager;
 
-public class ToDirectActivity extends AppCompatActivity {
+public class ToDirectActivity extends FullscreenActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

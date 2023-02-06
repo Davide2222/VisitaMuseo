@@ -28,11 +28,12 @@
             android:theme="@style/Theme.VisitaMuseo.NoActionBar"/>
         <activity
             android:name=".view.activity.ToDirectActivity"
-            android:exported="true">
-           <!-- <intent-filter>
+            android:exported="true"
+            android:theme="@style/Theme.VisitaMuseo.NoActionBar">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
 
         <activity
@@ -41,10 +42,10 @@
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity"
             android:exported="true">
-            <intent-filter>
+           <!-- <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity

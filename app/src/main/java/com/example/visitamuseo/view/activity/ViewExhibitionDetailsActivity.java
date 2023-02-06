@@ -20,7 +20,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 
-public class ViewExhibitionDetailsActivity extends AppCompatActivity {
+public class ViewExhibitionDetailsActivity extends FullscreenActivity {
 
     private Exhibition exhibition;
     private Art a = new Art("et","d" ,"rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");

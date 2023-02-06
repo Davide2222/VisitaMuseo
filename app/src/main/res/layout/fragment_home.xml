@@ -10,7 +10,7 @@
     <com.flaviofaria.kenburnsview.KenBurnsView
         android:id="@+id/fragment_home_background"
         android:layout_width="match_parent"
-        android:layout_height="494dp"
+        android:layout_height="500dp"
         android:scaleType="centerCrop"
         android:src="@drawable/background_home_one"
         app:layout_constraintBottom_toBottomOf="parent"

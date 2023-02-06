@@ -3,4 +3,10 @@
     <item name="ImageExhibition" type="id" />
     <item name="slider_image_item_loading_spinner" type="id" />
     <item name="fragment_home_spinner" type="id" />
+    <item name="UsernameTextInput_login" type="id" />
+    <item name="UsernameEditText_login" type="id" />
+    <item name="SignUpTextView" type="id" />
+    <item name="login_button" type="id" />
+    <item name="PasswordEditText_login" type="id" />
+    <item name="PasswordTextInput_login" type="id" />
 </resources>

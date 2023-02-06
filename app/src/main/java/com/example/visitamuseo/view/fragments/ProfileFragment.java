@@ -1,4 +1,4 @@
-package com.example.visitamuseo;
+package com.example.visitamuseo.view.fragments;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.visitamuseo.R;
+import com.example.visitamuseo.utils.internalDatabase.DbManager;
 import com.example.visitamuseo.view.activity.NavigationActivity;
 import com.github.dhaval2404.imagepicker.ImagePicker;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,16 +27,10 @@ import org.jetbrains.annotations.NotNull;
 
 public class ProfileFragment extends Fragment {
 
-    private final NavigationActivity navigationActivity;
-    //private ProfilePresenter profilePresenter;
     private ImageView profilePicture;
-    private TextView textViewname;
+    private TextView welcomeText;
     private Button buttonChangePassword;
     private FloatingActionButton buttonChangeProfilePicture;
-
-    public ProfileFragment(NavigationActivity navigationActivity) {
-        this.navigationActivity = navigationActivity;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,20 +47,20 @@ public class ProfileFragment extends Fragment {
     @Override
     public void onViewCreated(@NotNull final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        textViewname = view.findViewById(R.id.NameText_profile);
+        welcomeText = view.findViewById(R.id.welcomeTextView);
         buttonChangePassword = view.findViewById(R.id.changePasswordButton);
-        buttonChangeProfilePicture = view.findViewById(R.id.fragment_profile_button_edit_image_profile);
+        buttonChangeProfilePicture = view.findViewById(R.id.edit_image_profile_button);
         profilePicture = view.findViewById(R.id.fragment_profile_picture);
-        //profilePresenter = new ProfilePresenter(this);
 
+        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MySharedPref", 0);
+        String pathImage = sharedPreferences.getString("imagePath", "");
 
-        SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MySharedPref",0);
-        String pathImage = sharedPreferences.getString("imagePath","");
-
-        if(!pathImage.equals("")){
+        if (!pathImage.equals("")) {
             Drawable image = Drawable.createFromPath(pathImage);
             profilePicture.setImageDrawable(image);
         }
+
+        updateWelcomeString();
 
         buttonChangeProfilePicture.setOnClickListener(v -> {
             ImagePicker.Companion.with(this)
@@ -85,18 +81,20 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    public void setTextName(String name) {
-        textViewname.setText(name);
+    private void updateWelcomeString() {
+        DbManager database = DbManager.getDbInstance(requireActivity());
+        String name = database.userDao().nickname();
+        welcomeText.setText("Benvenuto \n" + name + "!");
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode,resultCode,data);
+        super.onActivityResult(requestCode, resultCode, data);
         Uri uri = data.getData();
         SharedPreferences sharedPreferences = requireActivity().getSharedPreferences("MySharedPref", 0);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
-        if(uri != null && uri.getPath() != null){
-            myEdit.putString("imagePath",uri.getPath());
+        if (uri != null && uri.getPath() != null) {
+            myEdit.putString("imagePath", uri.getPath());
             myEdit.apply();
             Drawable image = Drawable.createFromPath(uri.getPath());
             profilePicture.setImageDrawable(image);

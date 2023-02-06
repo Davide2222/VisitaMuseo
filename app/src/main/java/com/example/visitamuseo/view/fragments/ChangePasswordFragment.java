@@ -1,4 +1,4 @@
-package com.example.visitamuseo;
+package com.example.visitamuseo.view.fragments;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -14,6 +14,8 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
+
+import com.example.visitamuseo.R;
 
 import org.jetbrains.annotations.NotNull;
 

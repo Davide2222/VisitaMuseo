@@ -1,9 +1,13 @@
 package com.example.visitamuseo.view.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,38 +18,62 @@ import java.util.regex.Pattern;
 
 import es.dmoral.toasty.Toasty;
 
-public class RegisterActivity extends AppCompatActivity {
+public class RegisterActivity extends FullscreenActivity {
 
     private EditText registerUserIdEditText;
     private EditText registerPasswordEditText;
     private EditText registerConfirmPasswordEditText;
     private Button signupButton;
     private RadioGroup typeUser;
+    CompoundButton previousCheckedCompoundButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-       /* registerUserIdEditText=findViewById(R.id.UserIdEditText_signup);
-        registerPasswordEditText= findViewById(R.id.NewPasswordEditText_signup);
-        registerConfirmPasswordEditText= findViewById(R.id.ConfirmPasswordEditText_signup);
-        signupButton=findViewById(R.id.signup_button);*/
-        typeUser=findViewById(R.id.radioGroupTypeUser);
-
+        registerUserIdEditText = findViewById(R.id.UserIdEditText_signup);
+        registerPasswordEditText = findViewById(R.id.NewPasswordEditText_signup);
+        registerConfirmPasswordEditText = findViewById(R.id.ConfirmPasswordEditText_signup);
+        signupButton = findViewById(R.id.signup_button);
+        typeUser = findViewById(R.id.radioGroupTypeUser);
 
         signupButton.setOnClickListener(view -> {
-            String userId=registerUserIdEditText.getText().toString();
-            String password=registerPasswordEditText.getText().toString();
-            String newPassword=registerConfirmPasswordEditText.getText().toString();
-            if(checkEmptyField(userId)&&checkEmptyField(password)&&checkEmptyField(newPassword)){
-                if(validatePassword() && check2Password()){
+            String userId = registerUserIdEditText.getText().toString();
+            String password = registerPasswordEditText.getText().toString();
+            String newPassword = registerConfirmPasswordEditText.getText().toString();
+            if (checkEmptyField(userId) && checkEmptyField(password) && checkEmptyField(newPassword)) {
+                if (validatePassword() && check2Password()) {
 
                 } else {
                     Toasty.warning(this, "Attenzione! Controllare la password", Toasty.LENGTH_SHORT, true).show();
                 }
             }
         });
+
+        CompoundButton.OnCheckedChangeListener onRadioButtonCheckedListener = (buttonView, isChecked) -> {
+            if (!isChecked) return;
+            if (previousCheckedCompoundButton != null) {
+                previousCheckedCompoundButton.setChecked(false);
+                previousCheckedCompoundButton = buttonView;
+            } else {
+                previousCheckedCompoundButton = buttonView;
+            }
+            Toast.makeText(getApplicationContext(), previousCheckedCompoundButton.getText().toString(), Toast.LENGTH_SHORT).show();
+        };
+
+
+        RadioButton radioButton1=findViewById(R.id.radioButtonSingle);
+        RadioButton radioButton2=findViewById(R.id.radioButtonFamily);
+        RadioButton radioButton3=findViewById(R.id.radioButtonGroup);
+        RadioButton radioButton4=findViewById(R.id.radioButtonExpert);
+        RadioButton radioButton5=findViewById(R.id.radioButtonSchool);
+
+        radioButton1.setOnCheckedChangeListener(onRadioButtonCheckedListener);
+        radioButton2.setOnCheckedChangeListener(onRadioButtonCheckedListener);
+        radioButton3.setOnCheckedChangeListener(onRadioButtonCheckedListener);
+        radioButton4.setOnCheckedChangeListener(onRadioButtonCheckedListener);
+        radioButton5.setOnCheckedChangeListener(onRadioButtonCheckedListener);
     }
 
     private boolean checkEmptyField(String text) {

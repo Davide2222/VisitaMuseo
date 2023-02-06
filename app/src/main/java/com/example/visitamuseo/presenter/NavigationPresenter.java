@@ -36,7 +36,7 @@ public class NavigationPresenter {
                 currentFragment = new HomeFragment(navigationActivity);
                 break;
             case NavigationActivity.BUTTON_MY_PROFILE:
-                //currentFragment = new com.example.visitamuseo.ProfileFragment(navigationActivity);
+                //currentFragment = new com.example.visitamuseo.view.fragments.ProfileFragment(navigationActivity);
                 break;
             case NavigationActivity.BUTTON_SIGN_OUT:
                 logout();
