@@ -94,6 +94,11 @@ public class NavigationActivity extends FullscreenActivity {
         listenToDragEvents();
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
     private void listenToSelectedEvents() {
         sideNavigationMenuAdapter.setSelectedListener(position -> {
             closeFragment(currentFragment);
