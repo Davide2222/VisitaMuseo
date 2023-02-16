@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.visitamuseo.R;
+import com.example.visitamuseo.model.Art;
 import com.example.visitamuseo.model.Exhibition;
 import com.example.visitamuseo.model.SliderViewInterface;
 import com.example.visitamuseo.utils.adapter.ExhibitionsAdapterForSlider;
+import com.example.visitamuseo.utils.internalDatabase.DbManager;
 import com.example.visitamuseo.view.activity.NavigationActivity;
 import com.flaviofaria.kenburnsview.KenBurnsView;
 import com.ramotion.cardslider.CardSliderLayoutManager;
@@ -22,6 +24,8 @@ import com.wang.avi.AVLoadingIndicatorView;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Random;
 
 public class HomeFragment extends Fragment {
@@ -85,11 +89,11 @@ public class HomeFragment extends Fragment {
     }
 
     private void showExhibitions() {
-        ArrayList<SliderViewInterface> exhibitions= new ArrayList<>();
-        exhibitions.add(new Exhibition("et1","ciao","https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg"));
-        exhibitions.add(new Exhibition("ee2","rtetyert",
-                "https://www.ansa.it/webimages/ch_600x/2022/12/14/f26f739d1b515f97dcf50d1d3bb7aace.jpg"));
-        exhibitions.add(new Exhibition("et3","rtetyert","https://www.ansa.it/webimages/ch_600x/2022/12/14/f26f739d1b515f97dcf50d1d3bb7aace.jpg"));
+        DbManager database = DbManager.getDbInstance(requireActivity().getApplicationContext());
+        ArrayList<SliderViewInterface> exhibitions=new ArrayList<>();
+
+        List<Exhibition> tmpEx=database.exhibitionsDao().getAll();
+        exhibitions.addAll(tmpEx);
 
         ExhibitionsAdapterForSlider cardAdapter = new ExhibitionsAdapterForSlider(exhibitions, getActivity());
         exhibitionsRecyclerView.setAdapter(cardAdapter);

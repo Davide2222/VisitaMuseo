@@ -1,10 +1,20 @@
 package com.example.visitamuseo.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import org.jetbrains.annotations.NotNull;
+
 import java.io.Serializable;
 
+@Entity
 public class Exhibition implements SliderViewInterface,Serializable {
+    @PrimaryKey @NotNull
     private String name;
+    @ColumnInfo(name = "description")
     private String description;
+    @ColumnInfo(name = "urlImageExhibitions")
     private String urlImage;
 
     public Exhibition(String name, String description, String urlImage) {

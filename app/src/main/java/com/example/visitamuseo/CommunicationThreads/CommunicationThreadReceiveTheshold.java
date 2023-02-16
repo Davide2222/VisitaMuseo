@@ -9,7 +9,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class CommunicationThreadReceiveTheshold {
-    private final String host ="13.95.3.73";
+    private final String host ="10.0.2.15";
     final private int port = 61438;
     String TAG = "Log - CommunicationThreadReceiveTheshold";
 

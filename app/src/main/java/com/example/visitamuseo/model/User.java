@@ -1,4 +1,4 @@
-package com.example.visitamuseo.utils.internalDatabase;
+package com.example.visitamuseo.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
@@ -10,13 +10,13 @@ import org.jetbrains.annotations.NotNull;
 public class User {
 
     @PrimaryKey @NotNull
-    public String uid;
+    private String uid;
 
     @ColumnInfo(name = "password")
-    public String password;
+    private String password;
 
     @ColumnInfo(name = "type")
-    public String type;
+    private String type;
 
     public User(String uid, String password, String type) {
         this.uid = uid;

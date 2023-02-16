@@ -9,12 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.visitamuseo.CommunicationThreads.CommunicationThreadLogin;
+import com.example.visitamuseo.CommunicationThreads.CommunicationThreadReceiveData;
 import com.example.visitamuseo.R;
 import com.example.visitamuseo.utils.internalDatabase.DbManager;
-import com.example.visitamuseo.utils.internalDatabase.User;
+import com.example.visitamuseo.model.User;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -43,29 +42,36 @@ public class LoginActivity extends FullscreenActivity {
 
         buttonLogin.setOnClickListener(view -> {
 
-            startActivity(new Intent(this, NavigationActivity.class));
 
+            executor.execute(() -> {
+                    CommunicationThreadReceiveData communicationThreadReceiveData = new CommunicationThreadReceiveData(this,"Single");
+                    communicationThreadReceiveData.getData();
+                    handler.post(() -> {
+                        startActivity(new Intent(this, NavigationActivity.class));
 
-            String username= editTextUsername.getText().toString();
+                    });
+                });
+
+          /*  String username= editTextUsername.getText().toString();
             String password= editTextPassword.getText().toString();
-            if(checkField(username) && checkField(password)){
-               executor.execute(() -> {
+            if(checkField(username) && checkField(password)){*/
+               /*executor.execute(() -> {
                     CommunicationThreadLogin communicationThreadLogin = new CommunicationThreadLogin(username+","+password);
                     User userLogged= communicationThreadLogin.checkUser();
                     handler.post(() -> {
                         if (userLogged == null)
                             Toasty.error(this,"Utente non trovato!", Toast.LENGTH_SHORT, true).show();
                         else {
-                           /* Toasty.info(this, "Utente trovato", Toast.LENGTH_SHORT, true).show();
+                           *//* Toasty.info(this, "Utente trovato", Toast.LENGTH_SHORT, true).show();
                             System.out.println(userLogged);
-                            //fare login*/
+                            //fare login*//*
                             DbManager database = DbManager.getDbInstance(getApplicationContext());
                             database.userDao().insertUser(userLogged);
                             //startActivity(new Intent(this, ViewExhibitionListActivity.class));
                         }
                     });
                 });
-            }
+            }*/
         });
 
         textViewSignUp.setOnClickListener(view -> {

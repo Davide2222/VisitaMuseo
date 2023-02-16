@@ -2,7 +2,7 @@ package com.example.visitamuseo.CommunicationThreads;
 
 import android.util.Log;
 
-import com.example.visitamuseo.utils.internalDatabase.User;
+import com.example.visitamuseo.model.User;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

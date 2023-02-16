@@ -68,9 +68,11 @@ public class ArtAdapterForSlider extends RecyclerView.Adapter<ArtAdapterForSlide
         View customLayout = layoutInflater.inflate(R.layout.card_art_details, null);
         ImageView imageView = customLayout.findViewById(R.id.imageArt);
         ImageView remove = customLayout.findViewById(R.id.removeArtCard);
+        TextView name = customLayout.findViewById(R.id.artName2);
         TextView authorName = customLayout.findViewById(R.id.authorName);
         TextView description= customLayout.findViewById(R.id.description);
 
+        name.setText(((Art) art).getName());
         authorName.setText(((Art) art).getAuthor());
         description.setText(((Art) art).getDescription());
 

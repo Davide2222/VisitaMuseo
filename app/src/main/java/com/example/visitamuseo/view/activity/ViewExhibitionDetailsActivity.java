@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,21 +14,24 @@ import com.example.visitamuseo.model.Exhibition;
 import com.example.visitamuseo.R;
 import com.example.visitamuseo.model.SliderViewInterface;
 import com.example.visitamuseo.utils.adapter.ArtAdapterForSlider;
+import com.example.visitamuseo.utils.internalDatabase.DbManager;
 import com.ramotion.cardslider.CardSliderLayoutManager;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ViewExhibitionDetailsActivity extends FullscreenActivity {
 
     private Exhibition exhibition;
-    private Art a = new Art("et","d" ,"rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
+    /*private Art a = new Art("et","d" ,"rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
     private Art b = new Art("1","d" , "rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
     private Art c = new Art("2t","d" , "rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
     private Art d = new Art("3t","d" ,"rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
     private Art fg = new Art("4t","d" ,"rtetyert", "https://www.ansa.it/webimages/ch_600x/2022/12/14/f26f739d1b515f97dcf50d1d3bb7aace.jpg");
 
-    ArrayList<SliderViewInterface> aws=new ArrayList<>();
+    ArrayList<SliderViewInterface> aws=new ArrayList<>();*/
+    ArrayList<SliderViewInterface> arts=new ArrayList<>();
 
     private ImageView imageExhibition;
     private TextView nameExhibition;
@@ -54,9 +56,9 @@ public class ViewExhibitionDetailsActivity extends FullscreenActivity {
             exhibition=(Exhibition) getIntent().getSerializableExtra("exhibition");
         }
 
-        
-        /////////
-        aws.add(a);aws.add(b);aws.add(c);aws.add(d);aws.add(fg);
+        DbManager database = DbManager.getDbInstance(this);
+        List<Art> tmpArts=database.artDao().getArts(exhibition.getName());
+        arts.addAll(tmpArts);
 
         setSupportActionBar(toolbar);
 
@@ -77,7 +79,7 @@ public class ViewExhibitionDetailsActivity extends FullscreenActivity {
     }
 
     private void showArts() {
-        ArtAdapterForSlider accommodationCardAdapter = new ArtAdapterForSlider(aws, this);
+        ArtAdapterForSlider accommodationCardAdapter = new ArtAdapterForSlider(arts, this);
         artRecyclerView.setAdapter(accommodationCardAdapter);
         artRecyclerView.setVisibility(View.VISIBLE);
     }
