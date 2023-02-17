@@ -37,13 +37,13 @@ public class CommunicationThreadLogin {
                 //Ricezione risposta
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String response = reader.readLine();
+                System.out.println(response);
                 if (response == null) {
                     out.close();
                     socket.close();
                     return null;
                 }
                 response = response.replace("\u0000", "");
-                System.out.println(response);
                 String[] fields = response.split(",");
                 user=new User(fields[0],fields[1], fields[2]);
                 out.close();

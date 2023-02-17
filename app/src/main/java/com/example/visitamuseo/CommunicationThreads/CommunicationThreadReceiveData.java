@@ -37,7 +37,7 @@ public class CommunicationThreadReceiveData {
         DbManager database = DbManager.getDbInstance(context);
         try {
             InetAddress serverAddress = InetAddress.getByName(host);
-            if (serverAddress.isReachable(40000)) {
+            if (serverAddress.isReachable(8000)) {
                 Socket socket = new Socket(serverAddress, port);
                 //Invio il tipo di utente che ha fatto il login
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
@@ -53,7 +53,7 @@ public class CommunicationThreadReceiveData {
 
                 JSONObject jsonObject = new JSONObject(response);
                 JSONArray exhibitions = jsonObject.getJSONArray("exhibitions");
-                for (int i = 0; i < exhibitions.length(); i++) {
+                for (int i = 0; i < exhibitions.length() ; i++) {
                     JSONObject exhibition = exhibitions.getJSONObject(i);
                     String nameExhibition = exhibition.getString("name");
                     String descriptionEx = exhibition.getString("description");
