@@ -19,6 +19,9 @@ public interface UserDao {
     @Query("SELECT password FROM User")
     String nickname();
 
+    @Query("SELECT type FROM User")
+    String type();
+
     @Query("UPDATE User SET password = :newPassword")
     void updatePassword(String newPassword);
 

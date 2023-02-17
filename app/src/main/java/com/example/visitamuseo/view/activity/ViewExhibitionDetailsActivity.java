@@ -24,22 +24,12 @@ import java.util.List;
 public class ViewExhibitionDetailsActivity extends FullscreenActivity {
 
     private Exhibition exhibition;
-    /*private Art a = new Art("et","d" ,"rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
-    private Art b = new Art("1","d" , "rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
-    private Art c = new Art("2t","d" , "rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
-    private Art d = new Art("3t","d" ,"rtetyert", "https://www.napolidavivere.it/wp-content/uploads/2014/11/fiera-creattiva-alla-mostra-doltremare.jpg");
-    private Art fg = new Art("4t","d" ,"rtetyert", "https://www.ansa.it/webimages/ch_600x/2022/12/14/f26f739d1b515f97dcf50d1d3bb7aace.jpg");
-
-    ArrayList<SliderViewInterface> aws=new ArrayList<>();*/
     ArrayList<SliderViewInterface> arts=new ArrayList<>();
 
     private ImageView imageExhibition;
     private TextView nameExhibition;
     private TextView descriptionExhibition;
     private RecyclerView artRecyclerView;
-    private View artContainer;
-    private AVLoadingIndicatorView loadingSpinner;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

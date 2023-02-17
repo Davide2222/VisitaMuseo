@@ -41,37 +41,32 @@ public class LoginActivity extends FullscreenActivity {
         textViewSignUp= findViewById(R.id.SignUpTextView);
 
         buttonLogin.setOnClickListener(view -> {
-
-
-            executor.execute(() -> {
-                    CommunicationThreadReceiveData communicationThreadReceiveData = new CommunicationThreadReceiveData(this,"Single");
-                    communicationThreadReceiveData.getData();
-                    handler.post(() -> {
-                        startActivity(new Intent(this, NavigationActivity.class));
-
-                    });
-                });
-
-          /*  String username= editTextUsername.getText().toString();
+            String username= editTextUsername.getText().toString();
             String password= editTextPassword.getText().toString();
-            if(checkField(username) && checkField(password)){*/
-               /*executor.execute(() -> {
+            if(checkField(username) && checkField(password)){
+               executor.execute(() -> {
                     CommunicationThreadLogin communicationThreadLogin = new CommunicationThreadLogin(username+","+password);
                     User userLogged= communicationThreadLogin.checkUser();
                     handler.post(() -> {
                         if (userLogged == null)
                             Toasty.error(this,"Utente non trovato!", Toast.LENGTH_SHORT, true).show();
                         else {
-                           *//* Toasty.info(this, "Utente trovato", Toast.LENGTH_SHORT, true).show();
+                            Toasty.success(this, "Utente trovato", Toast.LENGTH_SHORT, true).show();
                             System.out.println(userLogged);
-                            //fare login*//*
+                            //Inserimento attuale utente nel databse locale
                             DbManager database = DbManager.getDbInstance(getApplicationContext());
                             database.userDao().insertUser(userLogged);
-                            //startActivity(new Intent(this, ViewExhibitionListActivity.class));
+                            executor.execute(() -> {
+                                CommunicationThreadReceiveData communicationThreadReceiveData = new CommunicationThreadReceiveData(this,userLogged.getType());
+                                communicationThreadReceiveData.getData();
+                                handler.post(() -> {
+                                    startActivity(new Intent(this, NavigationActivity.class));
+                                });
+                            });
                         }
                     });
                 });
-            }*/
+            }
         });
 
         textViewSignUp.setOnClickListener(view -> {

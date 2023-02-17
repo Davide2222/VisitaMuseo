@@ -84,7 +84,8 @@ public class ProfileFragment extends Fragment {
     private void updateWelcomeString() {
         DbManager database = DbManager.getDbInstance(requireActivity());
         String name = database.userDao().nickname();
-        welcomeText.setText("Benvenuto \n" + name + "!");
+        String type= database.userDao().type();
+        welcomeText.setText("Informazioni \n" + "Tipologia: " +type+"\n"+"Nome:"+ name);
     }
 
     @Override

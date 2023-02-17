@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/open_sans_bold"
                     android:letterSpacing="0.05"
-                    android:text="Descrizione"
+                    android:text="Descrizione:"
                     android:textColor="@color/darkBlue"
                     android:textSize="18sp" />
 

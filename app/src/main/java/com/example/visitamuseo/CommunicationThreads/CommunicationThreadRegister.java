@@ -12,49 +12,41 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.util.Objects;
 
-public class CommunicationThreadLogin {
+public class CommunicationThreadRegister {
     private final String host = "192.168.178.51";
     final private int port = 61440;
     private String userData;
-    String TAG = "Log - CommunicationThreadSenderUserForLogin";
+    String TAG = "Log - CommunicationThreadSenderUserForSignIn";
 
-    public CommunicationThreadLogin(String userData) {
+    public CommunicationThreadRegister(String userData) {
         this.userData = userData;
     }
 
-    public User checkUser() {
-        User user = null;
+    public boolean registerUser() {
         try {
             InetAddress serverAddress = InetAddress.getByName(host);
             if (serverAddress.isReachable(8000)) {
                 Socket socket = new Socket(serverAddress, port);
                 //Invio dati
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-                out.println("LOGIN:"+userData);
+                out.println("SIGNUP:"+userData);
                 Log.d(TAG, "In attesa della risposta dalla socket");
                 //Ricezione risposta
-                BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String response = reader.readLine();
-                if (response == null) {
-                    out.close();
-                    socket.close();
-                    return null;
-                }
-                response = response.replace("\u0000", "");
-                System.out.println(response);
-                String[] fields = response.split(",");
-                user=new User(fields[0],fields[1], fields[2]);
+               BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+               String response = reader.readLine();
                 out.close();
                 socket.close();
-                return user;
+                response = response.replace("\u0000", "");
+                System.out.println(response);
+                return response.equals("User added");
             } else {
                 Log.d(TAG, "Il server non è raggiungibile! Non è stato possibile inviare i dati");
             }
         } catch (IOException io) {
             Log.d(TAG, io.getLocalizedMessage());
         }
-        return null;
+        return false;
     }
+
 }

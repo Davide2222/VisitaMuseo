@@ -129,7 +129,7 @@
                     android:button="@null"
                     android:layoutDirection="rtl"
                     android:textAlignment="center"
-                    android:text="Singolo" />
+                    android:text="Singolo"/>
 
                 <RadioButton
                     android:id="@+id/radioButtonFamily"
@@ -141,7 +141,7 @@
                     android:button="@null"
                     android:layoutDirection="rtl"
                     android:textAlignment="center"
-                    android:text="Famiglie" />
+                    android:text="Famiglia" />
 
                 <RadioButton
                     android:id="@+id/radioButtonExpert"
@@ -176,7 +176,7 @@
                     android:button="@null"
                     android:layoutDirection="rtl"
                     android:textAlignment="center"
-                    android:text="Scolaresche" />
+                    android:text="Scolaresca" />
 
                 <RadioButton
                     android:id="@+id/radioButtonGroup"
@@ -188,7 +188,7 @@
                     android:button="@null"
                     android:layoutDirection="rtl"
                     android:textAlignment="center"
-                    android:text="Gruppi" />
+                    android:text="Gruppo" />
             </LinearLayout>
 
         </RadioGroup>
@@ -219,7 +219,6 @@
             android:id="@+id/NewPasswordTextInput_signup"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Long"
             android:hint="@string/Password"
-            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -228,7 +227,6 @@
                 android:id="@+id/NewPasswordEditText_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
                 android:textColor="@color/blue" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -241,7 +239,6 @@
             android:id="@+id/ConfirmPasswordTextInput_signup"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.Long"
             android:hint="Conferma Password"
-            app:endIconMode="password_toggle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -250,8 +247,8 @@
                 android:id="@+id/ConfirmPasswordEditText_signup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:textColor="@color/blue" />
+                android:textColor="@color/blue"
+                android:paddingEnd="40dp"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -42,16 +42,13 @@
             android:windowSoftInputMode="adjustResize"
             tools:ignore="LockedOrientationActivity"
             android:exported="true">
-           <!-- <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
         </activity>
 
         <activity
             android:name=".view.activity.RegisterActivity"
             android:exported="false"
-            android:theme="@style/Theme.VisitaMuseo.NoActionBar"/>
+            android:theme="@style/Theme.VisitaMuseo.NoActionBar"
+            android:parentActivityName=".view.activity.LoginActivity"/>
         <activity
             android:name=".view.activity.LoginActivity"
             android:exported="false"

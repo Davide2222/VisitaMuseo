@@ -89,7 +89,6 @@ public class ArtAdapterForSlider extends RecyclerView.Adapter<ArtAdapterForSlide
 
         dialog.show();
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setCancelable(false);
 
         remove.setOnClickListener(view1 -> dialog.dismiss());
     }

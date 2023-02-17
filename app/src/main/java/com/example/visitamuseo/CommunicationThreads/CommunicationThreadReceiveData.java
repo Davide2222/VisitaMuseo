@@ -19,6 +19,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.util.stream.Collectors;
 
 public class CommunicationThreadReceiveData {
     private final String host ="192.168.178.51";
@@ -36,27 +37,21 @@ public class CommunicationThreadReceiveData {
         DbManager database = DbManager.getDbInstance(context);
         try {
             InetAddress serverAddress = InetAddress.getByName(host);
-            if (serverAddress.isReachable(8000)) {
+            if (serverAddress.isReachable(40000)) {
                 Socket socket = new Socket(serverAddress, port);
                 //Invio il tipo di utente che ha fatto il login
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
-                out.println(userType);
+                out.println("DATA:"+userType);
                 Log.d(TAG, "In attesa della risposta dalla socket");
                 //Ricezione delle mostre e opere d'arte con la descrizione personalizzata
                 BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String line = reader.readLine();
-                StringBuilder stringBuilder = new StringBuilder();
-                while (line != null) {
-                    stringBuilder.append(line);
-                    line = reader.readLine();
-                }
-                reader.close();
-                System.out.println(stringBuilder);
+                String response=reader.lines().collect(Collectors.joining(System.lineSeparator())).replace("\u0000", "");
+                System.out.println(response);
+
                 //Il buffer non contiene un json, ma è scritto in un formato equivalente al
                 // json in questo modo sfruttiamo i parser già disponibili
 
-                JSONObject jsonObject = new JSONObject(stringBuilder.toString());
-
+                JSONObject jsonObject = new JSONObject(response);
                 JSONArray exhibitions = jsonObject.getJSONArray("exhibitions");
                 for (int i = 0; i < exhibitions.length(); i++) {
                     JSONObject exhibition = exhibitions.getJSONObject(i);
@@ -65,7 +60,7 @@ public class CommunicationThreadReceiveData {
                     String linkEx = exhibition.getString("link");
 
                     JSONArray arts = exhibition.getJSONArray("arts");
-                    for (int y = 0; y < arts.length(); y++) {
+                    for (int y = 0; y < arts.length()-1; y++) {
                         JSONObject art = arts.getJSONObject(y);
                         String artName = art.getString("artName");
                         String author = art.getString("author");
@@ -83,6 +78,7 @@ public class CommunicationThreadReceiveData {
                     database.exhibitionsDao().insertExhibition();
 
                 }
+                reader.close();
                 out.close();
                 socket.close();
             } else {
@@ -90,6 +86,7 @@ public class CommunicationThreadReceiveData {
             }
         } catch (IOException |JSONException io) {
             Log.d(TAG, io.getLocalizedMessage());
+            io.printStackTrace();
         }
     }
 }

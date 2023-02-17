@@ -196,6 +196,8 @@ public class NavigationActivity extends FullscreenActivity {
     private void logout() {
         DbManager database = DbManager.getDbInstance(this);
         database.userDao().delete();
+        database.exhibitionsDao().delete();
+        database.artDao().delete();
         this.startActivity(new Intent(this, ToDirectActivity.class));
         Toasty.info(this, "Logout effetuato!", Toasty.LENGTH_SHORT, true).show();
     }
