@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/open_sans_bold"
+            android:background="@drawable/shape_container_bottom"
             android:text="Scopri le bellezze\n del museo"
             android:textAlignment="center"
             android:textColor="@color/darkBlue"
